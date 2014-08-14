@@ -11,7 +11,7 @@ The main backend file is routes/index.js where I bring the data from the mongoDB
 
 This site is fully html5/css3 responsive using both bootstrap and custom mediaqueries in my css.
 I still need a few handheld testing devices to dialin the mediaqueries (emulators only get so far).
-The site is set up with scrolling navigation (hit links in top menu) whioch is part of design specs...
+The site is set up with scrolling navigation (hit links in top menu) which is part of design specs...
 
 http://infinite-wildwood-5088.herokuapp.com/it-dev
 
