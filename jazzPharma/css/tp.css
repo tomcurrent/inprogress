@@ -505,6 +505,14 @@ html.all-ie [data-tp].times .right li:first-child { margin-top: -20px; }
 [data-tp] .news-slider li .info { float: left; }
 [data-tp] .news-slider li:nth-child(odd) { border-right: 1px solid #f3f3f3;}
 
+[data-tp] .news-slider li .info:after {
+  content: url(../images/orange-bar.png);
+  position: relative;
+  top: -17px;
+  left: -136px;
+  z-index: 9999;
+}
+
 [data-tp] .news-slider li .info p {
   margin: -2px 0 0 0;
   width: 135px; 
