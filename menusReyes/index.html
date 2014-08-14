@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+<!-- for slide/globel/search -->
+<link rel="stylesheet" type="text/css" href="css/globalMenus.css" />
+
+
+<title>Global Menus Test Page</title>
+</head>
+<body style="height: 1000px;">
+
+<!-- for slide/search menus -->
+<div>
+  <a href="#" class="menu-trigger icon_hamburger" data-trigger="slide" id="top-trigger" data-no></a>
+  <div id="globalmenu" data-target="global" data-no></div>
+</div>
+
+<!-- for search  -->
+<div id="search"><a href="#" class="search-trigger icon_search" data-trigger="search" data-no></a></div>
+<div class="search-container" style="display: none;" data-search data-no>
+    <div class="control-container" data-no> search control here <div class="divider" data-js="close-search"><a class="close-search"></a></div></div>
+</div>
+
+<script src="js/vendor/jquery.min.js"></script>
+
+<!-- global menu scripts -->
+<script data-menus src="js/globalMenus.js"></script>
+
+</body>
+</html>

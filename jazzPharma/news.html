@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/tp.css" />
+<title>NEWS Layout</title>
+</head>
+<body>
+
+<!-- NOT FOR PROD -->
+<div class="main-wrapper" data-tp>
+<!-- //END NOT FOR PROD -->
+
+<!-- NEWSPAGE wrapper -->
+  <div class="newspage-wrapper" data-tp>
+    <p class="title">News</p>
+  </div>
+<!-- //END NEWSPAGE wrapper -->
+
+<!-- RIGHT aside (below should just need href's plugged in) -->
+  <div class="right-aside" data-tp>
+    <ul>
+      <li><a href="#">Company News</a></li>
+      <li><a href="#">Corporate Sponsorship</a></li>
+      <li><a href="#">Company Meeting</a></li>
+      <li><a href="#">Buisness Development</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Missions</a></li>
+      <li><a href="#">Patients First</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Tools & Resources</a></li>
+      <li><a href="#">Office Site Update</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Great place to work</a></li>
+      <li><a href="#">Talent Acqiusition</a></li>
+      <li><a href="#">Promotions</a></li>
+      <li><a href="#">New Employees</a></li>
+      <li><a href="#">Recognition</a></li>
+      <li><a href="#">Comminity Beat</a></li>
+      <li><a href="#">Employee Feedback</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Advocasy & Alliances</a></li>
+      <li><a href="#">Corporate Sponsorship</a></li>
+      <li><a href="#">Patient Advocasy</a></li>
+      <li><a href="#">Award</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Leaders in Action</a></li>
+      <li><a href="#">Leaders Corner</a></li>
+    </ul>
+  </div>
+<!-- //END RIGHT aside -->
+
+<!-- ARTICLES (below li's will be looped with data) [will have to do a index count on the data and start new ul when index hits 15-30-45 etc.] [the individual articles url will go in its container li's data-url="<url here>"]-->
+  <div class="articles" data-tp>
+    <p class="counter">Articles <span data-count>1 - 14</span> of <span data-total>33</span></p>
+    <a class="prev-arrow" data-trigger="prev"></a>
+    <div class="slider-container">
+      <div class="news-slider" data-slide>
+        <ul>
+<!-- new li  when index is <= 14 -->
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#3">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+        </ul>
+
+<!-- new ul  when index is >= 15 && <= 29 -->
+        <ul>
+  <!-- new li  when index is >= 15 && <= 28 -->
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+          <li data-url="#">
+            <img src="images/news-thumb.png">
+            <div class="info">
+              <p>News Heading</p>
+              <p class="date">Date</p>
+              <p>adipiscing elit ipsum dolor Cras sed Lorem ipsum dolor</p>
+            </div>
+          </li>
+        </ul>
+<!-- new ul  when index is >= 29 && <= 43 -->
+  <!-- new li  when index is >= 28 && <= 42 -->
+<!-- new ul  when index is >= 43 && <= 57 -->
+  <!-- new li  when index is >= 43 && <= 58 -->
+<!-- new ul  when index is >= 57 && <= 70 -->
+  <!-- new li  when index is >= 57 && <= 70 -->
+      </div>
+    </div>
+    <a class="next-arrow" data-trigger="next"></a>
+    <p class="counter">Articles <span data-count>1 - 14</span> of <span data-total>33</span></p>
+  </div>
+<!-- //END ARTICLES -->
+
+
+<!-- NOT FOR PROD -->
+<div style="clear: both; height: 60px"></div>
+</div> <!-- END main wrapper -->
+<!-- //END NOT FOR PROD -->
+
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/tpSlider.js"></script>
+<script>tpSlider.init(570, 'ul', 570);</script>
+<script src="js/news.js"></script>
+</body>
+</html>
