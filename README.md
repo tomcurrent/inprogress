@@ -7,8 +7,8 @@ nodeTahoe:
 
 This is a node.js site using Express, JADE and mongoDB.
 Still Waiting for images. This template will be used for both this site and a new homePage currently in design phase.
-The main backend file is routes/index.js where I bring the data from the mongoDB into the JADE templates (views/main.jade). The main functionality file is in public/js/script.js.
-As well I connect the pages forms into nodemailer and mongoDB.
+The main backend file is routes/index.js where I bring the data from the mongoDB into the JADE templates (views/main.jade). As well I connect the pages forms into nodemailer and mongoDB. The main functionality file is in public/js/script.js.
+
 This site is fully html5/css3 responsive using both bootstrap and custom mediaqueries in my css.
 I still need a few handheld testing devices to dialin the mediaqueries (emulators only get so far).
 The site is set up with scrolling navigation (hit links in top menu) whioch is part of design specs...
