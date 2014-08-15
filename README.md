@@ -6,7 +6,13 @@ This site is fully html5/css3 responsive using both bootstrap and custom mediaqu
 I still need a few handheld testing devices to dialin the mediaqueries (emulators only get so far).
 The site is set up with scrolling navigation (hit links in top menu) which is part of design specs...
 
-http://infinite-wildwood-5088.herokuapp.com/it-dev
+http://ecsite.azurewebsites.net/
+
+http://ecsite.azurewebsites.net/it-dev
+
+http://ecsite.azurewebsites.net/owner
+
+and more admin pages....
 
 
 
