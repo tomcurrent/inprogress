@@ -1,0 +1,8 @@
+*.DS_Store
+*.node
+*.a
+*.o
+*.dylib
+*.o.d
+*.node.d
+gyp-mac-tool

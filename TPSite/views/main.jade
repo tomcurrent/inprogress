@@ -1,0 +1,282 @@
+extends layout
+
+block content
+  header.clearfix
+    section(class=["header-top", "clearfix"])
+      .container
+        .row
+          .col-xs-5.col-sm-4
+            a(class="logo", href="http://www.tahoepartners.com", target="_blank")
+              img(alt="logo", src="images/logo.png")
+          .col-md-8
+            .menu-btn.menu-main(data-target=".nav-collapse", data-toggle="collapse", data-menu)
+              span.fa.icon-menu2
+            ul.navigation.nav-collapse(data-navigation)
+              // DYNAMIC MAIN LINKS HERE //
+              each ec, i in ecData
+                if (i === 7)
+                  each main in ec.mainLinks
+                    li
+                      a(href="#{ec.el}#{main}") #{main}
+    .clearfix
+    // HOME SECTION //
+    section#home
+      .container.align-center
+        article.row
+          h1.col-md-12 smart begins here
+          h3 Radically changing the way people engage and collaborate... delivering digital solutions that drive customer engagement and workforce productivity...
+            br
+            | that's smart.
+            br
+            | Welcome to Tahoe Partners
+    // EXPERTISE SECTION //
+    section#expertise.clearfix.content(data-layout)
+      .container
+        .flat-tabs.clearfix
+          ul.nav.margin.align-right.nav-tabs
+            // DYNAMIC LINKS HERE //
+            each ec, i in ecData
+              if (i === 8)
+                each name, i in ec.linkName
+                  if (i <= 2)
+                    li(data-links="expertise")
+                      a.inner(data-target="#{ec.el}#{name.id_}_1, #{ec.el}#{name.id_}_2" data-toggle="tab", data-content="#{name.id_}") #{name.link}
+        .tab-content
+          // DYNAMIC IMAGES HERE //
+          each ec, i in ecData
+            if (i === 9)
+              each elem, i in ec.images
+                if (i <= 2)
+                  .tab-pane(id="#{elem.id_}", data-name="expertise")
+                    figure.chart-container(data-chart="expertise")
+                      img(data-src="#{elem.imageUrl}", alt="Inner Image", data-image)
+        .tab-content
+          // DYNAMIC TABS HERE //
+          each ec, i in ecData
+            if (i == 10)
+              each elem, i in ec.data
+                if (i <= 2)
+                  .tab-pane(id="#{elem.id_}", data-tab="expertise")
+                      .row.clearfix.lower-container
+                        .col-md-4
+                            p.about-link EXPERTISE
+                            h2.about-title #{elem.h2}
+                        .col-md-8.challenge-copy
+                          h4 #{elem.h4}
+                          p.expertise(data-nodes="expertise") #{elem.para1}
+                          p.heavy(data-trigger="#{elem.trigger}") #{elem.heavy}
+                          span.heavy-before
+                          button#assesment.flat(data-trigger="self-assesment", class="#{elem.invis}") TAKE OUR SHAREPOINT 2013 SELF-ASSESMENT &nbsp;
+      .container.blog-holder(data-switch="engagement")
+        .team-container(data-modal='blogs')
+          // DYNAMIC TILES HERE //
+          each ec, i in ecData
+            if (i === 0)
+              each blog, i in ec.engagement
+                .col-md-4.modal-target(data-title="#{blog.title}")
+                  img.article-link(src="#{blog.imageLocation}", alt="team")
+                  .clearfix.team-inner.padding.article-link(data-team)
+                    h3.team-name #{blog.title}
+                    .lower
+                      p(class="#{blog.copyInvis}") #{blog.copy}
+                      ul(class="#{blog.linkInvis}")
+                        each link in blog.links
+                          li
+                           a(href="#{link.url}") #{link.name}
+                  .cape-link(data-js="cape-link", class="#{blog.button}")
+                    a.view-more VIEW OUR SERVICE LIST
+                    span.icon-seperator
+                    span.icon-arrowrightflat
+      .container.blog-holder.invisible(data-switch="productivity")
+        .team-container(data-modal='blogs')
+          // DYNAMIC TILES HERE //
+          each ec, i in ecData
+            if (i === 0)
+              each blog, i in ec.productivity
+                .col-md-4.modal-target(data-title="#{blog.title}")
+                  img.article-link(src="#{blog.imageLocation}", alt="team")
+                  .clearfix.team-inner.padding.article-link(data-team)
+                    h3.team-name #{blog.title}
+                    .lower
+                      p(class="#{blog.copyInvis}") #{blog.copy}
+                      ul(class="#{blog.linkInvis}")
+                        each link in blog.links
+                          li
+                           a(href="#{link.url}") #{link.name}
+                  .cape-link(data-js="cape-link", class="#{blog.button}")
+                    a.view-more(data-toggle="modal", data-target="") VIEW OUR SERVICE LIST
+                    span.icon-seperator
+                    span.icon-arrowrightflat
+      .container.blog-holder.invisible(data-switch="insurance")
+        .team-container(data-modal='blogs')
+          // DYNAMIC TILES HERE //
+          each ec, i in ecData
+            if (i === 0)
+              each blog, i in ec.insurance
+                .col-md-4.modal-target(data-title="#{blog.title}")
+                  img.article-link(src="#{blog.imageLocation}", alt="team")
+                  .clearfix.team-inner.padding.article-link(data-team)
+                    h3.team-name #{blog.title}
+                    .lower
+                      p(class="#{blog.copyInvis}") #{blog.copy}
+                      ul(class="#{blog.linkInvis}")
+                        each link in blog.links
+                          li
+                           a(href="#{link.url}") #{link.name}
+                  .cape-link(data-js="cape-link", class="#{blog.button}")
+                    a.view-more(data-toggle="modal", data-target="") VIEW OUR SERVICE LIST
+                    span.icon-seperator
+                    span.icon-arrowrightflat
+    // RERSULTS SECTION //
+    section#results.clearfix.content
+      .container
+        .title-content.clearfix
+          .title-inner
+            h3.port-title Results
+        .row.port-container(data-modal="results")
+          // DYNAMIC results TILES HERE //
+          each ec, i in ecData
+            if (i >= 1 && i <= 6)
+              .col-md-6.port-item
+                .port-inner.clearfix(data-toggle="modal", data-target=".results-modal", data-title="#{ec.name}")
+                  figure.box-40
+                    img.port-image(alt="results Image", src="#{ec.imageUrl}", data-js="port-image")
+                  .padding.box-60.inner(data-js='box-60')
+                    h3 #{ec.name}
+                    p #{ec.copy}
+                    span.cat-icon.fa.icon-view
+    // ABOUTUS SECTION //
+    section#about-us.clearfix.content(data-layout)
+      .container
+        .white-bg.clearfix.flat-tabs
+          ul.nav.margin.align-right.nav-tabs
+            // DYNAMIC LINKS HERE //
+            each ec, i in ecData
+              if (i === 8)
+                each name, i in ec.linkName
+                  if (i >= 3)
+                    li(data-links="about-us")
+                      a.inner(data-target="#{ec.el}#{name}_1, #{ec.el}#{name}_2" data-toggle="tab") #{name}
+        .tab-content
+          // DYNAMIC IMAGES HERE //
+          each ec, i in ecData
+            if (i === 9)
+              each elem, i in ec.images
+                if (i >= 3)
+                  .tab-pane(id="#{elem.id_}", data-name="about-us")
+                    figure.chart-container(data-chart="about-us")
+                      img(data-src="#{elem.imageUrl}", alt="Inner Image", class="#{elem.invis}", data-image)
+        .tab-content
+          // DYNAMIC TABS HERE //
+          each ec, i in ecData
+            if (i === 10)
+              each elem, i in ec.data
+                if (i > 2)
+                  .tab-pane(id="#{elem.id_}", data-tab="about-us")
+                    .clearfix
+                      .row.clearfix.lower-container
+                        .col-md-4
+                            p.about-link ABOUT US
+                            h2.about-title #{elem.h2}
+                        .col-md-8.expertise-copy
+                          h4 #{elem.h4}
+                          p.expertise(data-nodes="expertise") #{elem.para1}
+                          button.btn.flat(data-toggle="modal", data-target="#{elem.buttonTarget}", class="#{elem.invis}") #{elem.buttonCopy}
+                    .boss-container.row(class="#{elem.boss}")
+                      each boss in elem.bosses
+                        .col-md-6.port-item
+                          .port-inner.clearfix
+                            figure.box-40
+                              img.port-image(alt="results Image", src="#{boss.bossImg}", data-js="port-image")
+                            .padding.box-60.inner(data-js='box-60')
+                              h3 #{boss.bossName}
+                              p #{boss.bossTitle}
+                              span.cat-icon.fa.icon-view
+    // BLOG SECTION //
+    section#blog.clearfix.content(data-layout)
+      .container
+        .tab-content
+          .tab-pane.active
+            figure.chart-container(data-chart="blog")
+              img(data-src="images/charts/blog", alt="Inner Image", data-image)
+        .tab-content
+          .tab-pane.active
+            .clearfix
+              .row.clearfix.lower-container
+                .col-md-4
+                    h2.about-title BLOG
+                .col-md-8.expertise-copy
+                  h4 We Invite you to respond to our thoughts and share with us some of your own.
+                  p.expertise We're experts in delivering engaging, results-oriented digital solutions. See what we have to say and join the conversation.
+                  p.expertise Categories include: 
+                    a Customer Engagement,&nbsp;
+                    a Workforce Productivity,&nbsp;
+                    a Health Insurance,&nbsp;
+                    a Sharepoint
+                  button.btn.flat Visit Our Blog
+    // contact SECTION //
+    section#contact.bg-dark.bg3
+      .container.contact-container
+        #message-us
+          a(href="https://www.google.com/maps/place/770+N+Halsted+St,+Chicago,+IL+60642/@41.89612,-87.6483129,17z/data=!3m1!4b1!4m2!3m1!1s0x880fd332a81f8155:0xdfdd0670fd11ccb", target="_blank")
+            #map-canvas
+          .message-container.clearfix
+            .row.clearfix
+              .col-md-4.padding
+                div(data-layout)
+                  p.about-link CONTACT US
+                  h2.about-title Leave A Message
+                  p.phone.icon 
+                    a(href="tel:3124913000") 312.491.3000 tel.
+                      span.icon-phone
+                  p.phone.icon 
+                    a 312.491.3001 fax
+                      span.icon-phone
+                  p.phone 770 North Halstead
+                  p.phone Suite 502
+                  p.phone Chicago, IL 60642
+              .col-md-8
+                .padding
+                  div(data-js="contact")
+                    #form-inner
+                      .results.red(data-results="contact") Your Form Submission has been Successful! Thank You.
+                      div(data-form)
+                        form#contact-form
+                          p.radio
+                            span Inquiry Type
+                            label.blue
+                              input(data-js="general", type="radio", value="general", name="reason", checked="true")
+                              | General
+                            label
+                              input(data-js="careers", type="radio", value="careers", name="reason")
+                              | Careers
+                          p.name
+                            input(data-js="first-name", type="text", name="firstName", placeholder="First Name *", required="required")
+                            label
+                              span.error(data-error="first") *First Name Field Required
+                          p.name
+                            input(data-js="last-name", type="text", name="lastName", placeholder="Last Name *", required="required")
+                            label
+                              span.error(data-error="last") *Last Name Field Required
+                          p
+                            input(data-js="email", type="email", name="email", placeholder="Email *", required="required")
+                            label
+                              span.error(data-error="1") *Email Field Required
+                              span.error(data-error="2") *Email Not Valid
+                          p.textarea
+                            textarea(data-js="message", name="message", placeholder="Your Message *", rows="4", required="required")
+                            label
+                              span.error(data-error="message") *Message Required
+                          input(type="hidden", name="type", value="contact")
+                          a.contact-btn(href="#", data-button="contact") Send Message
+                            span.icon-arrowrightfill
+                .spacing40.clearfix
+    include templates/subscribe-modal
+    include templates/results-modal
+    include templates/blog-modal
+    include templates/report-modal
+  script(src="js/libs/libs.min.js")
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCn3oEVD1DN9DqcmqQUba7aSv73mSDR_Do")
+  script(src="js/modals.js")
+  script(src="js/script.js")
+  script(src="js/map.js")
