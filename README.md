@@ -1,5 +1,5 @@
-TP uses Express, JADE and mongoDB.
-Still Waiting for images and more.
+TPSite uses Node, Express, JADE, mongoDB, node-mail and more.
+Still Waiting for images and more from UX.
 The main backend file is routes/index.js where I bring the data from the mongoDB into the JADE templates (views/main.jade). As well I connect the pages forms into nodemailer and mongoDB. The main functionality file is in public/js/script.js.
 
 This site is fully html5/css3 responsive using both bootstrap and custom mediaqueries in my css.
