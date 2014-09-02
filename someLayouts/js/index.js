@@ -54,13 +54,23 @@ var JZ = (function() {
       $('.times li:eq(1) p').html('<p class="hr-min">' + timeValue + ":" + min + '<span class="after">' +  meridian + '</span><br><span class="next">'+ displayDate + '</p>');
       $('.times li:eq(2) p').html('<p class="hr-min">' + dublin + ":" + min + '<span class="after">' +  dubMeridian + '</span><br><span class="next">'+ displayDate + '</p>');
       $('.times li:eq(3) p').html('<p class="hr-min">' + munich + ":" + min + '<span class="after">' +  munMeridian + '</span><br><span class="next">'+ displayDate + '</p>');
+    },
 
+    calendar : function() {
       $('.date').each(function(i,el) {
         var newDate = $(el).text();
         newDate = new Date(newDate);
         newDate = newDate.toString().split(' ').splice(1, 2).join(' ');
         $(el).html(newDate)
       });
+      $('.calendar li').hover(
+        function() { $(this).css('cursor', 'pointer'); },
+        function() { $(this).css('cursor', 'default'); }
+      );
+      $('.calendar').on('click', function(ev) {
+        var calUrl = $(ev.target).parents('li').data('url');
+        window.location = calUrl;
+      })
     },
 
     init : function() {
@@ -73,6 +83,7 @@ var JZ = (function() {
         JZ.setTimers();
         setInterval(JZ.setTimers, 10000);
       }
+      JZ.calendar();
     }
   };
 })();
