@@ -10,6 +10,11 @@
   width: 960px;
 }
 
+[data-tp] .disabled {
+	opacity: 0.2;
+	filter: alpha(opacity = 20);
+}
+
 [data-tp] .title {
   font-family: "SegoeSB", Verdana, sans-serif;
   font-size: 20px;
