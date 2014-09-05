@@ -4,7 +4,9 @@ var tpSlider = (function() {
       _elCount,
       _width,
       $slider = $('[data-slide]'),
-      $count = $('[data-count]');
+      $count = $('[data-count]'),
+      $next = $('[data-tp] .next-arrow'),
+      $prev = $('[data-tp] .prev-arrow');
   return {
     setWidth: function(el, elW) {
       var elWidth = elW;
@@ -22,12 +24,22 @@ var tpSlider = (function() {
       $('[data-trigger]').on('click', function(ev) {
         var el = $(ev.target).data('trigger');
         if (el === 'next') {
+           
           minus = '-';
-          if (count === 0) marg = _width;
+          if (count === 0) { marg = _width;  }
+          $prev.removeClass('disabled');
           count++;
           if (count === slW) {
-            count--;
-            return false;
+              count--;
+              return false;
+          }
+          else {
+              if ((count + 1) === slW) {
+                  $next.addClass('disabled');
+              }
+              else {
+                  $next.removeClass('disabled');
+              }
           }
           marg =  _width * count;
           $slider.animate({
@@ -35,16 +47,17 @@ var tpSlider = (function() {
           });
         }
         if (el === 'prev') {
+            $next.removeClass('disabled');
           if (count <= 1) {
             minus = '';
             baseMarg = 0;
             count = 0;
-            $('[data-tp] .prev-arrow').addClass('disabled');
+            $prev.addClass('disabled');
           } else {
             minus = '-';
             baseMarg = _width * (count - 1);
             count--;
-            $('[data-tp] .prev-arrow').removeClass('disabled');
+            $prev.removeClass('disabled');
           }
           $slider.animate({
             marginLeft: minus + baseMarg + 'px'
