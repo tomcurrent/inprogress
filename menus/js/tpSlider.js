@@ -1,7 +1,8 @@
 var tpSlider = (function() {
   'use strict';
+  
   var _slideWidth,
-      _elCount,
+      _elCount = 0,
       _width,
       $slider = $('[data-slide]'),
       $count = $('[data-count]');
@@ -39,52 +40,23 @@ var tpSlider = (function() {
             minus = '';
             baseMarg = 0;
             count = 0;
-            $('[data-tp] .prev-arrow').addClass('disabled');
           } else {
             minus = '-';
             baseMarg = _width * (count - 1);
             count--;
-            $('[data-tp] .prev-arrow').removeClass('disabled');
           }
           $slider.animate({
             marginLeft: minus + baseMarg + 'px'
           });
         }
-        tpSlider.setCount(count);
       });
     },
 
-    setCount : function(count) {
-      if ($slider.hasClass('news-slider')) {
-        var els;
-        $slider.find('li').each(function(i, el) {
-          i++;
-          els = i;
-        });
-        $('[data-total]').text(els);
-        var factor = 14,
-            rangeFloor = factor * count + 1,
-            rangeCeiling = factor * (count + 1);
 
-        if (els < factor) {
-          $count.text('1 - ' + els);
-        } else if ((els > factor) && (count === 0 || count === undefined)) {
-          $count.text('1 - ' + factor);
-        } else {
-          if (rangeCeiling > els) {
-            $count.text(rangeFloor + ' - ' + els);
-          } else {
-           $count.text(rangeFloor + ' - ' + rangeCeiling);
-          }
-        }
-      }
-    },
-
-    init : function(num, el, elW) {
-      _width = num;
+    init : function(el, elW) {
+      _width = elW;
       tpSlider.setWidth(el, elW);
       tpSlider.slideListener();
-      tpSlider.setCount();
     }
   };
 })();

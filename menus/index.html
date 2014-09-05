@@ -5,13 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
+<link rel="stylesheet" type="text/css" href="http://weo3.com/sandbox/tap/rey/css/foundation.css" />
+<link rel="stylesheet" type="text/css" href="http://weo3.com/sandbox/tap/rey/css/site-layout.css" />
+
+<!-- for global footer -->
+<link rel="stylesheet" type="text/css" href="css/gobalFooter.css" />
+
 <!-- for slide/globel/search -->
 <link rel="stylesheet" type="text/css" href="css/globalMenus.css" />
+<script src="//wurfl.io/wurfl.js"></script>
 
-
-<title>Global Menus Test Page</title>
+<title>Reyes Test Page</title>
 </head>
-<body style="height: 1000px;">
+<body>
 
 <!-- for slide/search menus -->
 <div>
@@ -24,11 +30,204 @@
 <div class="search-container" style="display: none;" data-search data-no>
     <div class="control-container" data-no> search control here <div class="divider" data-js="close-search"><a class="close-search"></a></div></div>
 </div>
+<div style="margin-top:200px"></div>
 
+
+<div class="row panelContainer">
+    <div class="large-6 medium-105 small-21 columns">
+      <div class="tile bg-white  ratio-1-2">
+        <div class="tile-content">
+          <span class="tile-block-header header-large bg-beverage"><!-- image can go here --></span>
+          <span class="tile-label-top txt-blue-light">newswire</span>
+          <ul class="articles">
+            <li>
+              <a href="[data-announcments]" data-id="1" data-modal>
+              <p class="article-text" data-trim>Nulla ornare ante eget velit fringilla tincidunt nec non tortor. Nulla ornare ante eget velit fringilla tincidunt nec non tortor. Nulla ornare ante eget velit fringilla tincidunt nec non tortor. Nulla ornare ante eget velit fringilla tincidunt nec non tortor. Nulla ornare ante eget velit fringilla tincidunt nec non tortor.</p>
+              <p class="article-owner txt-grey-mid">by content owner</p>
+              </a>
+            </li>
+            <li>
+              <a href="[data-announcments]" data-id="2" data-modal>
+              <p class="article-text" data-trim>Nulla ornare ante eget velit fringilla tincidunt nec non tortor.</p>
+              <p class="article-owner txt-grey-mid">by content owner</p>
+              </a>
+            </li>
+            <li>
+              <a href="[data-announcments]" data-id="3" data-modal>
+              <p class="article-text" data-trim>Nulla ornare ante eget velit fringilla tincidunt nec non tortor.</p>
+              <p class="article-owner txt-grey-mid">by content owner</p>
+              </a>
+            </li>
+            <li>
+              <a href="[data-announcments]" data-id="4" data-modal>
+              <p class="article-text" data-trim>Nulla ornare ante eget velit fringilla tincidunt nec non tortor.</p>
+              <p class="article-owner txt-grey-mid">by content owner</p>
+              </a>
+            </li>
+            <li>
+              <a href="[data-announcments]" data-id="5" data-modal>
+              <p class="article-text" data-trim>Nulla ornare ante eget velit fringilla tincidunt nec non tortor.</p>
+              <p class="article-owner txt-grey-mid">by content owner</p>
+              </a>
+            </li>
+            <li>
+              <a href="[data-announcments]" data-id="6" data-modal>
+              <p class="article-text" data-trim>Nulla ornare ante eget velit fringilla tincidunt nec non tortor. Nulla ornare ante eget velit fringilla tincidunt nec non tortor. Nulla ornare ante eget velit fringilla tincidunt nec non tortor. Nulla ornare ante eget velit fringilla tincidunt nec non tortor. Nulla ornare ante eget velit fringilla tincidunt nec non tortor.</p>
+              <p class="article-owner txt-grey-mid">by content owner</p>
+              </a>
+            </li>
+          </ul>
+            <a href="#" class="tile-nav-view-all txt-grey">view all</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="large-6 medium-105 small-21 columns">
+      <div class="tile-large-2 bg-white">
+        <div class="trigger-set">
+          <a class="trigger prev bg-slate txt-white" data-trigger="prev"><span class="tile-nav-arrow icon-arrowleftflat"></span></a>
+          <a class="trigger next bg-slate txt-white" data-trigger="next"><span class="tile-nav-arrow icon-arrowrightflat"></span></a>
+        </div>
+        <div class="tile-content tile-carousel" data-tile="1">
+          <img src="images/img-carousel.jpg">
+          <span class="tile-title txt-blue-light"></span>
+          <p>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        </div>
+        <div class="tile-content tile-carousel invisible" data-tile="2">
+          <img src="images/img-carousel.jpg">
+          <span class="tile-title txt-blue-light"></span>
+          <p>2 Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        </div>
+        <div class="tile-content tile-carousel invisible" data-tile="3">
+          <img src="images/img-carousel.jpg">
+          <span class="tile-title txt-blue-light"></span>
+          <p>3 Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        </div>
+        <div class="tile-content tile-carousel invisible" data-tile="4">
+          <img src="images/img-carousel.jpg">
+          <span class="tile-title txt-blue-light"></span>
+          <p>4 Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        </div>
+      </div>
+      
+      <div class="tile-large-2 bg-white">
+        <div class="tile-content">
+          <span class="tile-block-header header-large bg-beverage"><!-- image can go here --></span>
+          <ul class="item-list-normal">
+              <li>
+                <a href="[data-events]" data-id="7" data-modal>
+                  <p class="item-list-normal-date">08/29/14</p>
+                  <p class="item-list-normal-title">Annual review kickoff</p>
+                </a>
+              </li>
+              <li>
+                <a href="[data-events]" data-id="8" data-modal>
+                  <p class="item-list-normal-date">09/01/14</p>
+                  <p class="item-list-normal-title">EC Meetup</p>
+                </a>
+              </li>
+              <li>
+                <a href="[data-events]" data-id="9" data-modal>
+                  <p class="item-list-normal-date">10/11/14</p>
+                  <p class="item-list-normal-title">Company party</p>
+                </a>
+              </li>
+              <li>
+                <a href="[data-events]" data-id="10" data-modal>
+                  <p class="item-list-normal-date">10/13/14</p>
+                  <p class="item-list-normal-title">SPC 2015 Kickoff</p>
+                </a>
+              </li>
+            </ul>
+            <a href="#" class="tile-nav-view-all txt-grey">view all</a>
+        </div>
+      </div>
+    </div> 
+
+    <div class="large-3 medium-21 small-21 columns">
+      <div class="row">
+        <div class="large-21 medium-55 small-105 columns">
+          <div class="tile bg-beverage">
+            <div class="tile-content">
+              <span class="tile-label bg-white txt-blue-light">tile label</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-21 medium-55 small-105 columns">
+          <div class="tile bg-beverage">
+            <div class="tile-content">
+              <span class="tile-label bg-white txt-blue-light">tile label</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-21 medium-55 small-105 columns">
+          <div class="tile bg-beverage">
+            <div class="tile-content">
+              <span class="tile-label bg-white txt-blue-light">tile label</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-21 medium-55 small-105 columns">
+          <div class="tile bg-beverage">
+            <div class="tile-content">
+              <span class="tile-label bg-white txt-blue-light">tile label</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="large-3 medium-21 small-21 end columns">
+      <div class="row">
+        <div class="large-21 medium-55 small-105 columns">
+          <div class="tile bg-beverage">
+            <div class="tile-content">
+              <span class="tile-label bg-white txt-blue-light">tile label</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-21 medium-55 small-105 columns">
+          <div class="tile bg-beverage">
+            <div class="tile-content">
+              <span class="tile-label bg-white txt-blue-light">tile label</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-21 medium-55 small-105 columns">
+          <div class="tile bg-beverage">
+            <div class="tile-content">
+              <span class="tile-label bg-white txt-blue-light">tile label</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-21 medium-55 small-105 columns">
+          <div class="tile bg-beverage">
+            <div class="tile-content">
+              <span class="tile-label bg-white txt-blue-light">tile label</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- for modals -->
+<div class="row" style="display: none" id="data-announcments" data-announcments data-modal></div>
+<div class="row" style="display: none" data-events data-modal></div>
+
+<!-- for globalFooter -->
+<div data-footer></div>
 <script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/handlebars.js"></script>
 
 <!-- global menu scripts -->
 <script data-menus src="js/globalMenus.js"></script>
+
+<!-- globalFooter call for masterpage footer -->
+<script data-menus src="js/globalFooter.js"></script>
+<script data-menus src="js/tpModal.js"></script>
+<script data-menus src="js/tileScripts.js"></script>
 
 </body>
 </html>

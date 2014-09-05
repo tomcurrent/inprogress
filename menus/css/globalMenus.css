@@ -434,3 +434,15 @@ html.hh .search-container .control-container { width: 300px;}
 
 #search input { display: block; width: 200px;}
 a:-webkit-any-link { text-decoration: none !important; }
+
+
+#tp_overlay {
+  position: fixed;
+  z-index:100;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  display: none;
+}
