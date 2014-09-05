@@ -9,6 +9,7 @@ The site is set up with scrolling navigation (hit links in top menu) which is pa
 http://tpHome.azurewebsites.net/
 
 
+
 and more admin pages....
 
 
@@ -17,3 +18,10 @@ and more admin pages....
 
 
 
+
+
+/* ------------- */
+nodeSite is another MEAN stack site with similar node dependancies as above. Also awaiting images and content.
+
+/* -------------- */
+the other directories contain html/css and javascript for different intranetsfor clints. The html is basicly placeholder code which has been replaced by data fed loops in the production applications.
