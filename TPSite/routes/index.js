@@ -152,7 +152,7 @@ router.post('/', function (req, res) {
         from: from,
         to: to,
         subject: 'Contact Request',
-        text: 'This is a Contact Request from ec-nodesite\n' +
+        text: 'This is a Contact Request from Tahoe Partners\n' +
           'From: ' + firstName + ' ' + lastName + '\n' +
           'Email: ' + email + '\n' +
           'Phone: ' + phone +'\n' +
@@ -167,14 +167,14 @@ router.post('/', function (req, res) {
             smtpTransport.sendMail({
               from: from,
               to: firstName + ' ' + lastName + ' <' + email + '>',
-              subject: 'Contact Request Recieved from TahoePartners',
+              subject: 'Contact Request Recieved from Tahoe Partners',
               text: 'This is an automated response to your Contact Request. Below is the contact information we recieved from our site:\n' +
                 'From: ' + firstName + ' ' + lastName + '\n' +
                 'Email: ' + email + '\n' +
                 'Phone: ' + phone +'\n' +
                 'Inquiry Type: ' + reason + '\n\n' +
                 'Message: ' + message +  '\n\n' +
-                'Someone at TahoePartners will  contact you ASAP with the information you requested. Thank You!'
+                'Someone at Tahoe Partners will  contact you ASAP with the information you requested. Thank You!'
               },
               function(error, response) {
                 (error) ? res.end('{"error" : "Update Error", "status" : 503}') : res.end('{"success" : "Updated Successfully", "status" : 250}');
@@ -199,7 +199,7 @@ router.post('/', function (req, res) {
         from: from,
         to: to,
         subject: 'Blog Subscription',
-        text: 'This is a Blog Subscription Request from ec-nodesite\n' +
+        text: 'This is a Blog Subscription Request from Tahoe Partners\n' +
           'From: ' + firstName + ' ' + lastName + '\n' +
           'Email: ' + email + '\n' +
           'Inquiry Type: ' + inqType + '\n\n'
@@ -212,12 +212,12 @@ router.post('/', function (req, res) {
             smtpTransport.sendMail({
               from: from,
               to: firstName + ' ' + lastName + ' <' + email + '>',
-              subject: 'Blog Subscription Request Recieved from TahoePartners',
+              subject: 'Blog Subscription Request Recieved from Tahoe Partners',
               text: 'This is an automated response to your Blog Subscription Request. Below is the contact information we recieved from our site:\n' +
                 'From: ' + firstName + ' ' + lastName + '\n' +
                 'Email: ' + email + '\n' +
                 'Inquiry Type: ' + inqType + '\n\n' +
-                'Someone at TahoePartners will  contact you ASAP with the information you requested. Thank You!'
+                'Someone at Tahoe Partners will  contact you ASAP with the information you requested. Thank You!'
               },
               function(error, response) {
                 (error) ? res.end('{"error" : "Update Error", "status" : 503}') : res.end('{"success" : "Updated Successfully", "status" : 250}');
@@ -242,7 +242,7 @@ router.post('/', function (req, res) {
         from: from,
         to: to,
         subject: 'Report Request',
-        text: 'This is a Blog Report Request from ec-nodesite\n' +
+        text: 'This is a Blog Report Request from Tahoe Partners\n' +
           'From: ' + firstName + ' ' + lastName + '\n' +
           'Email: ' + email + '\n' +
           'Company Name: ' + company + '\n\n'
@@ -255,12 +255,12 @@ router.post('/', function (req, res) {
             smtpTransport.sendMail({
               from: from,
               to: firstName + ' ' + lastName + ' <' + email + '>',
-              subject: 'Report Request Recieved from TahoePartners',
+              subject: 'Report Request Recieved from Tahoe Partners',
               text: 'This is an automated response to your Report Request. Below is the contact information we recieved from our site:\n' +
                 'From: ' + firstName + ' ' + lastName + '\n' +
                 'Email: ' + email + '\n' +
                 'Company Name: ' + company + '\n\n' +
-                'Someone at TahoePartners will  contact you ASAP with the information you requested. Thank You!'
+                'Someone at Tahoe Partners will  contact you ASAP with the information you requested. Thank You!'
               },
               function(error, response) {
                 (error) ? res.end('{"error" : "Update Error", "status" : 503}') : res.end('{"success" : "Updated Successfully", "status" : 250}');
