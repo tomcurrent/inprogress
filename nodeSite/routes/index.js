@@ -5,7 +5,7 @@ var express = require('express'),
 
     // TODO map thru mail.tahoepartners.com (have IT set up account [in progress])
       service: 'Gmail',
-      auth: {user: 'tomsolyan@gmail.com', pass: '415kitten' }
+      auth: {user: 'tomsolyan@gmail.com', pass: '<not for github>' }
     }),
     from = 'Thomas Solyan <tomsolyan@gmail.com>',
     to = 'Thomas Solyan <tsolyan@tahoepartners.com>';
