@@ -47,7 +47,7 @@
 
 #mask {
   background: #000;
-  filter: alpha(opacity=70);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
   height: 100%;
   left: 0;
   opacity: .7;

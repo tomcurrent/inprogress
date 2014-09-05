@@ -12,7 +12,7 @@
 
 [data-tp] .disabled {
 	opacity: 0.2;
-	filter: alpha(opacity = 20);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
 }
 
 [data-tp] .title {
