@@ -9,15 +9,14 @@ var EC = (function() {
       _checkArray = [],
       _testData = {},
       _reason = 'general',
-      _valid;
+      _valid,
 
-  return {
-    pageSpecific: function() {
+    pageSpecific = function() {
       var pageLocation = window.location.href;
       if (pageLocation.match('owner')) $('html').addClass('owner');
     },
 
-    modalSetUp: function() {
+    modalSetUp = function() {
       var matchCase = function(newCase) {
         $('[data-target=".results-modal"]').each(function(i, el) {
           var portTitle = $(el).data('title');
@@ -56,7 +55,7 @@ var EC = (function() {
       });
     },
 
-    onePageNav : function() {
+    onePageNav = function() {
       $dataNav.onePageNav({
         filter: ':not(.external)',
         scrollThreshold: 0.25,
@@ -70,14 +69,14 @@ var EC = (function() {
         });
     },
 
-    formatDate : function() {
+    formatDate = function() {
       $('[data-js=date]').each(function(i, el) {
         var val = $(el).html();
         $(el).html((new Date(val)).toString().split(' ').splice(1, 3).join(' '));
       });
     },
 
-    setActiveState : function() {
+    setActiveState = function() {
       $('[data-links=expertise]:eq(0),' +
         '[data-links=about-us]:eq(0),' +
         '[data-name=expertise]:eq(0),' +
@@ -87,7 +86,7 @@ var EC = (function() {
       $('ul.navigation li:eq(0)').addClass('current');
     },
 
-    postForm : function(postData, type, ev) {
+    postForm = function(postData, type, ev) {
       $.post('/', postData);
       $(ev.target).addClass('no-pointer');
       $('[data-results=' + type + ']').fadeIn('slow');
@@ -97,55 +96,55 @@ var EC = (function() {
       }, 10000);
     },
 
-    inputError : function($container, selector) {
+    inputError = function($container, selector) {
       $container.find(selector)
         .fadeIn('slow')
         .delay(2000)
         .fadeOut('slow');
     },
 
-    validateInput : function($container, _testData, ev) {
+    validateInput = function($container, _testData, ev) {
       var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
       if (!_testData.firstName || _testData.firstName === 'First Name *') {
-        EC.inputError($container, '[data-error=first]');
+        inputError($container, '[data-error=first]');
         return false;
       }
       if (!_testData.lastName || _testData.lastName === 'Last Name *') {
-        EC.inputError($container, '[data-error=last]');
+        inputError($container, '[data-error=last]');
         return false;
       }
       if (!_testData.email || _testData.email === 'Email *') {
-        EC.inputError($container, '[data-error=1]');
+        inputError($container, '[data-error=1]');
         return false;
       }
       if (!emailReg.test(_testData.email)) {
-        EC.inputError($container, '[data-error=2]');
+        inputError($container, '[data-error=2]');
         return false;
       }
       if (!_testData.message || _testData.message === 'Email *') {
-        EC.inputError($container, '[data-error=message]');
+        inputError($container, '[data-error=message]');
         return false;
       }
       _valid = true;
       if (_valid) {
         var type = _testData.type,
             postData = $.param(_testData);
-        EC.postForm(postData, type, ev);
+        postForm(postData, type, ev);
       }
     },
 
-    setForms : function() {
-      EC.submitContact();
-      EC.submitBlog();
-      EC.submitReport();
-      $subscribeForm.on('change', '[type=checkbox]', EC.setCheckbox);
+    setForms = function() {
+      submitContact();
+      submitBlog();
+      submitReport();
+      $subscribeForm.on('change', '[type=checkbox]', setCheckbox);
       $subscribeForm.find('[data-checkbox]').click();
-      $contactForm.on('change', '[type=radio]', function(ev) {EC.setRadio(ev);});
+      $contactForm.on('change', '[type=radio]', function(ev) {setRadio(ev);});
       $('[data-error]').hide();
       $('[data-js=phone]').mask('(999) 999-9999');
     },
 
-    setRadio : function(ev) {
+    setRadio = function(ev) {
       _reason = $(ev.target).val();
       $contactForm.find('[type=radio]').each(function(i, el) {
         if ($(el).prop('checked')) {
@@ -156,7 +155,7 @@ var EC = (function() {
       });
     },
 
-    setCheckbox : function() {
+    setCheckbox = function() {
       $subscribeForm.find('[type=checkbox]').each(function(i, el) {
         var checkVal = $(el).val();
         if ($(el).prop('checked')) {
@@ -174,7 +173,7 @@ var EC = (function() {
       });
     },
 
-    submitContact : function() {
+    submitContact = function() {
       $('[data-button=contact]').on('click', function (ev) {
         ev.preventDefault();
         _valid = false;
@@ -187,11 +186,11 @@ var EC = (function() {
           reason : _reason,
           type : 'contact'
         };
-        EC.validateInput($contactForm, _testData, ev);
+        validateInput($contactForm, _testData, ev);
       });
     },
 
-    submitBlog : function() {
+    submitBlog = function() {
       $subscribeForm.on('click', '[data-button=subscribe]', function(ev) {
         ev.preventDefault();
         var uniqueArray = _checkArray.filter(function(elem, pos, self) {
@@ -205,11 +204,11 @@ var EC = (function() {
           inqType : uniqueArray,
           type : 'subscribe'
         };
-        EC.validateInput($subscribeForm, _testData, ev);
+        validateInput($subscribeForm, _testData, ev);
     });
     },
 
-    submitReport : function() {
+    submitReport = function() {
       $reportForm.on('click', '[data-button=report]', function(ev) {
         ev.preventDefault();
         _valid = false;
@@ -220,57 +219,72 @@ var EC = (function() {
           company : $reportForm.find('[data-js=company]').val(),
           type : 'report'
         };
-        EC.validateInput($reportForm, _testData, ev);
+        validateInput($reportForm, _testData, ev);
        });
     },
 
-    imageChange : function(type) {
+    imageChange = function(type) {
       $('[data-image]').each(function(i, el) {
         var elSrc = $(el).data('src');
         $(el).attr('src', elSrc + type + '.jpg');
       });
     },
 
-    setSize : function() {
+    imageChangeTest = function(type) {
+      $('[data-test]').each(function(i, el) {
+        var elSrc = $(el).data('src');
+        $(el).attr('src', elSrc + type + '.jpg');
+      });
+
+    },
+
+    setSize = function() {
       var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
       if (windowWidth >= 980) {
-        EC.imageChange('');
+        imageChange('');
+        imageChangeTest('-small');
       } else if ((windowWidth >= 768) && (windowWidth <= 979)) {
-        EC.imageChange('-lds');
+        imageChange('-lds');
       } else if ((windowWidth >= 571) && (windowWidth <= 767)) {
-        EC.imageChange('-prt');
+        imageChange('-prt');
       } else if (windowWidth <= 570) {
-        EC.imageChange('-hh');
+        imageChange('-hh');
+      }
+      if (windowWidth <=989) {
+        imageChangeTest('');
+      }
+      if (windowWidth <= 420) {
+        imageChangeTest('-small');
       }
     },
 
-    mobileDevice : function() {
+    mobileDevice = function() {
       if (WURFL.complete_device_name === 'Apple iPad') {
         if (window.matchMedia('(orientation : portrait)').matches) {
-          EC.imageChange('-prt');
+          imageChange('-prt');
         } else if (window.matchMedia('(orientation : landscape)').matches) {
-          EC.imageChange('-lds');
+          imageChange('-lds');
         }
       } else if ((WURFL.form_factor === 'Smartphone')) {
-         EC.imageChange('-hh');
+         imageChange('-hh');
       }
     },
 
-    rspImg : function () {
-      EC.setSize();
+    rspImg = function () {
+      setSize();
       $(window).smartresize(function() {
         setTimeout(function() {
-          EC.setSize();
+          setSize();
         }, 200);
       });
       $(window).on('orientationchange', function() {
         setTimeout(function() {
-          EC.mobileDevice();
+          mobileDevice();
         }, 200);
       });
     },
 
-    linkLength : function() {
+    linkLength = function() {
       var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
       $('[data-links=expertise]').each(function(i, el) {
         if (windowWidth <= 630) {
@@ -285,14 +299,14 @@ var EC = (function() {
       });
     },
 
-    cleanDOM : function() {
+    cleanDOM = function() {
       $('.remove').each(function(i, el) {
         $(el).remove();
       });
       $('#careers_2 button.btn').removeData('toggle');
     },
 
-    setBlogs : function() {
+    setBlogs = function() {
       $('[data-links=expertise]').on('click', function(ev) {
         var content = $(ev.target).data('content');
         $('[data-switch]').addClass('invisible');
@@ -303,7 +317,7 @@ var EC = (function() {
       });
     },
 
-    iPadFix : function() {
+    iPadFix = function() {
       if (WURFL.complete_device_name === 'Apple iPad') {
         $('[data-links]').on('touchstart', function(ev) {
           $(ev.target).closest('a.inner').trigger('click');
@@ -311,29 +325,37 @@ var EC = (function() {
       }
     },
 
-    phoneInit : function() {
+    phoneInit = function() {
       $(window).on('orientationchange', function() {
         setTimeout(function() {
-          EC.phoneFix();
+          phoneFix();
         }, 1000);
       });
     },
 
+    buttonLinks = function() {
+      $('[data-target=jobs').on('click', function() {
+        window.open( 'https://jobs-tahoepartners.icims.com/jobs/intro?hashed=0&mobile=false&width=900&height=500&bga=true&needsRedirect=false', '_blank');
+      });
+    };
+
+  return {
     init : function() {
-      EC.rspImg();
-      EC.iPadFix();
-      EC.phoneInit();
-      EC.pageSpecific();
-      EC.modalSetUp();
-      EC.onePageNav();
-      EC.formatDate();
-      EC.setActiveState();
-      EC.cleanDOM();
-      EC.setForms();
-      EC.setBlogs();
-      EC.linkLength();
+      rspImg();
+      iPadFix();
+      phoneInit();
+      pageSpecific();
+      modalSetUp();
+      onePageNav();
+      formatDate();
+      setActiveState();
+      cleanDOM();
+      setForms();
+      setBlogs();
+      linkLength();
+      buttonLinks();
       $(window).smartresize(function() {
-        EC.linkLength();
+        linkLength();
       });
     }
   };
