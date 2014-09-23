@@ -69,76 +69,70 @@ var ModalModel = (function () {
                 return content;
             }
         };
-    })();
+    })(),
 
-$.fn.extend({
-    tpModal: function () {
+    TPModal = (function() {
         var $overlay = $('#mask'),
-            count;
-        $('body').on('click', '.tile-content [data-modal]', function (ev) {
-            count = 0;
-            ev.preventDefault();
-            _modalURL = $(this).data('url');
-            if (_modalURL) {
-                $('#loading').removeClass('invisible');
-                if ($('body').hasClass('ie-8')) {
-                    $overlay.removeClass('invisible');
-                } else {
-                    $overlay.fadeIn('fast').removeClass('invisible');
-                }
-            } else {
-                return false;
-            }
-            var modal_id = $(this).attr('href'),
-                $modal = $(modal_id),
-                close_modal = function (modal_id) {
-                    if ($modal.is(':visible')) {
-                        if ($('body').hasClass('ie-8')) {
-                            $overlay.addClass('invisible');
+            $loading = $('#loading'),
+            $body = $('body');
+            return {
+                init : function () {
+                    $body.on('click', '[data-modal]', function (ev) {
+                        ev.preventDefault();
+                        if ($(this).data('id')) {
+                            if ($('body').hasClass('ie-8')) {
+                                $overlay.removeClass('invisible');
+                            } else {
+                                $overlay.fadeIn('fast').removeClass('invisible');
+                            }
+                            $loading.removeClass('invisible');
+                            var _modalTarget = $(this).attr('href'),
+                                _modalURL = $(this).data('url'),
+                                $modalContainer = $(_modalTarget),
+                                close_modal = function (_modalTarget) {
+                                    if ($modalContainer.is(':visible')) {
+                                        if ($body.hasClass('ie-8')) {
+                                            $overlay.addClass('invisible');
+                                        } else {
+                                            $overlay.fadeOut('fast').addClass('invisible');
+                                        }
+                                        $modalContainer
+                                            .css('display', 'none')
+                                            .children()
+                                            .remove();
+                                    }
+                                };
                         } else {
-                            $overlay.fadeOut('fast').addClass('invisible');
+                            return false;
                         }
-                        $modal.children().remove();
-                        $modal.css('display', 'none');
-                    }
-                };
-             $overlay
-                .click(function () {
-                    close_modal(modal_id);
-                });                
-             $.when(ModalModel.getData(modal_id, _modalURL))
-                .then(function () {
-                    if (count === 0) {
-                        $('body').on('dataLoaded', function () {
-                            $('#loading').addClass('invisible'); 
-                            count = 1;
-                            var content = ModalModel.loadContent(),
-                                data = ModalModel.loadData(),
-                                template = Handlebars.compile(content),
-                                context = data,
-                                html = template(context);                                  
-                            $modal.children().remove();
-                            $modal.css('display', 'none');
-                            $modal
-                                .css({
-                                    display: 'block',
+                        $overlay.on('click', function () {
+                            close_modal(_modalTarget);
+                        });
+                        $.when(ModalModel.getData(_modalTarget, _modalURL))
+                          .then(function () {
+                            $body.on('dataLoaded', function() {
+                                $loading.addClass('invisible');
+                                $modalContainer.children().remove();
+                                var content = ModalModel.loadContent(),
+                                    data = ModalModel.loadData(),
+                                    template = Handlebars.compile(content),
+                                    context = data,
+                                    html = template(context);
+                                $modalContainer
+                                  .css({
                                     overflow: 'hidden',
                                     position: 'fixed',
-                                    top: '100px',
-                                    right: 0,
-                                    bottom: 0,
-                                    left: 0,
-                                    zIndex: 999
-                                 })
-                                 .fadeTo(200, 1)
-                                 .append(html);                           
-                         });
-                     }
-                });
-                
-            $('body').on('click', '[data-close-modal]', function () {
-                close_modal(modal_id);
-            });
-        });
-    }
-});
+                                    zIndex: 999,
+                                    maxWidth: '770px'
+                                  })
+                                  .append(html)
+                                  .fadeTo(200, 1);
+                            });
+                          });
+                          $body.on('click', '[data-close-modal]', function () {
+                            close_modal(_modalTarget);
+                          });
+                    });
+                }
+            }
+    })();
