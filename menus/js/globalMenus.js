@@ -19,34 +19,40 @@ var MenusModel = (function() {
     dataSlide : function() {
       var configSlide = {
         link1: {displayName: "home", icon: "icon_home"},
-        link2: {displayName: "Collaboration", icon: "icon_project",
+        link2: {displayName: "Collaboration", icon: "icon_work",
             subLinks: [
-              {dispName: "Business Unit Teams", url: "#"},
-              {dispName: "Projects", url: "#"},
-              {dispName: "Communities", url: "#"}
+              {dispName: "Business Units", url: "#"},
+              {dispName: "Communities", url: "#"},
+              {dispName: "Projects", url: "#"}
             ]
-          },
-        link3: {displayName: "Employee Center", icon: "icon_person",
+        },
+        link3: {displayName: "Employee Services", icon: "icon_person",
             subLinks: [
               {dispName: "Benefits/Health", url: "#"},
-              {dispName: "Employment/Corp.", url: "#"},
+              {dispName: "Employee/Comp.", url: "#"},
               {dispName: "Orientation/Training", url: "#"},
               {dispName: "Work/Life", url: "#"}
             ]
-          },
-        link4: {displayName: "Workplace Services", icon: "icon_work",
-            subLinks: [
-              {dispName: "Technology/Services", url: "#"},
-              {dispName: "Order/Reserve", url: "#"},
-              {dispName: "Job Aids/Templates", url: "#"},
-              {dispName: "Facilities/Locations", url: "#"}
-            ]
-          },
-        link5: {displayName: "Company", icon: "icon_company",
+        },
+        link4: {displayName: "Workplace Services", icon: "icon_project",
+          subLinks: [
+            {dispName: "Technology/Services", url: "#"},
+            {dispName: "Order/Reserve", url: "#"},
+            {dispName: "Job Aids/Templates", url: "#"}
+          ]
+        },
+        link5: {displayName: "Dashboards", icon: "icon_dashboards",
           subLinks: [
             {dispName: "News & Culture", url: "#"},
             {dispName: "Leadership", url: "#"},
             {dispName: "About Business Units", url: "#"}
+          ]
+        },
+        link6: {displayName: "Inside HIMSS", icon: "icon_company",
+          subLinks: [
+            {dispName: "News & Culture", url: "#"},
+            {dispName: "Leadership", url: "#"},
+            {dispName: "Corporate Libraries", url: "#"}
           ]
         }
       };
@@ -54,12 +60,12 @@ var MenusModel = (function() {
     },
 
     loadSlide : function() {
-      var contentSlide = '<div class="kill-pointer nav" data-id="nav-prime" data-no><nav data-no><div class="list-container shadow" data-id="nav-slide" id="global" data-no><ul data-no><li data-no class="trigger-container"><div class="menu-trigger-container"><a href="#" class="menu-trigger main-trigger icon_hamburger" data-trigger="slide" data-no></a></div></li><li class="menu-item selected" data-no><a href="#" class="{{link1.icon}} top-list-item txt-grey" data-no>{{link1.displayName}}</a></li><li class="menu-item" data-no><a href="#" data-trigger="sec-nav" data-link="link2" class="{{link2.icon}} txt-grey" data-no>{{link2.displayName}}</a></li><li class="menu-item" data-no><a href="#" data-trigger="sec-nav" data-link="link3" class="{{link3.icon}} txt-grey" data-no>{{link3.displayName}}</a></li><li class="menu-item" data-no><a href="#" data-trigger="sec-nav" data-link="link4" class="{{link4.icon}} txt-grey" data-no>{{link4.displayName}}</a></li><li class="menu-item" data-no><a href="#" data-trigger="sec-nav" data-link="link5" class="{{link5.icon}} txt-grey" data-no>{{link5.displayName}}</a></li></ul></div><div class="list-container" id="secondary" data-id="nav-sec" data-no><div class="trigger-container clearfix" data-no><a href="#" data-trigger="sec-close" class="title h4" data-no>Main Menu</a><div class="menu-trigger-container last"><a href="#" class="menu-trigger main-trigger icon_hamburger" data-trigger="slide"></a></div></div><ul class="secondary-list" data-js="secondary-list"><li class="menu-item" data-js="display-name"><a href="#" class="top-list-item txt-grey"></a></li></ul></div></nav></div>';
+      var contentSlide = '<div class="kill-pointer nav" data-id="nav-prime"><nav><div class="list-container shadow" data-id="nav-slide" id="global"><ul><li class="trigger-container"><div class="menu-trigger-container"><a href="#" class="menu-trigger main-trigger icon_hamburger" data-trigger="slide"></a></div></li><li class="menu-item selected"><a href="#" class="{{link1.icon}} top-list-item txt-grey">{{link1.displayName}}</a></li><li class="menu-item"><a href="#" data-trigger="sec-nav" data-link="link2" class="{{link2.icon}} txt-grey">{{link2.displayName}}</a></li><li class="menu-item"><a href="#" data-trigger="sec-nav" data-link="link3" class="{{link3.icon}} txt-grey">{{link3.displayName}}</a></li><li class="menu-item"><a href="#" data-trigger="sec-nav" data-link="link4" class="{{link4.icon}} txt-grey">{{link4.displayName}}</a></li><li class="menu-item"><a href="#" data-trigger="sec-nav" data-link="link5" class="{{link5.icon}} txt-grey">{{link5.displayName}}</a></li><li class="menu-item"><a href="#" data-trigger="sec-nav" data-link="link6" class="{{link6.icon}} txt-grey">{{link6.displayName}}</a></li></ul></div><div class="list-container" id="secondary" data-id="nav-sec"><div class="menu-trigger-container last"><a href="#" class="menu-trigger main-trigger icon_hamburger" data-trigger="slide"></a></div><div class="trigger-container selected clearfix"><a href="#" class="title h4" data-trigger="sec-close">Main Menu</a></div><ul class="secondary-list" data-js="secondary-list"><li class="menu-item" data-js="display-name"><a href="#" class="top-list-item txt-grey"></a></li></ul></div></nav></div>';
       return contentSlide;
     },
 
     loadGlobal : function() {
-      var contentSlide = '<br><div class="menu-container" data-menu data-no><ul data-no>{{#each this.global}}<li class="{{className}}" data-no><a href="{{url}}"><div></div><p>{{copy}}</p></a></li>{{/each}}<ul></div>';
+      var contentSlide = '<br><div class="menu-container" data-menu><ul>{{#each this.global}}<li class="{{className}}"><a href="{{url}}"><div></div><p>{{copy}}</p></a></li>{{/each}}<ul></div>';
       return contentSlide;
     }
   };
@@ -68,10 +74,7 @@ var MenusModel = (function() {
 
 var GM = (function() {
   'use strict';
-  $('[data-menus]').before('<script src="//wurfl.io/wurfl.js"></script>');
-  $('[data-trigger=slide]').after('<div data-target="slide" id="template"></div>');
-  $('[data-target=global]').append('<a class="icon_menu2 txt-grey" data-trigger="global" data-no></a>');
-  $('body').append('<div id="mask" data-mask class="invisible">');
+  $('[data-target=global]').append('<a class="icon_menu2 txt-grey" data-trigger="global"></a>');
   var dataGlobal = MenusModel.dataGlobal(),
       dataSlide = MenusModel.dataSlide(),
       loadSlide = MenusModel.loadSlide(),
@@ -81,31 +84,34 @@ var GM = (function() {
       $slideTrigger = $('[data-trigger=slide]'),
       $searchTrigger = $('[data-trigger=search]'),
       $searchContainer = $('[data-search]'),
+      $template = $('#template'),
+      $global,
       $navGlobal,
       $navSlide,
       $navPrime,
       $navSec,
-      $dataMask = $('[data-mask]');
-  return {
-    setTemplate : function() {
+      $dataMask = $('[data-mask]'),
+  
+    setTemplate = function() {
       var templateSlide = Handlebars.compile(loadSlide),
           templateGlobal = Handlebars.compile(loadGlobal),
           htmlSlide = templateSlide(dataSlide),
           htmlGlobal = templateGlobal(dataGlobal);
       $('[data-target=slide]').append(htmlSlide);
       $('[data-target=global]').append(htmlGlobal);
-      GM.setVars();
-      GM.setListeners();
-      GM.outsideClick();
+      setVars();
+      setListeners();
+      outsideClick();
     },
 
-    setSlideSecondary : function(dataLink) {
+    setSlideSecondary = function(dataLink) {
       $.each(dataSlide, function(i, el) {
         if (i === dataLink) {
           $('[data-js=display-name] a')
             .html(el.displayName)
             .attr('class', 'top-list-item')
             .attr('class', 'txt-grey')
+            .attr('class', el.icon)
             .attr('data-no');
           $('[data-js=sub]').remove();
           $.each(el.subLinks, function(i, elem) {
@@ -117,23 +123,21 @@ var GM = (function() {
       });
     },
 
-    setVars : function() {
+    setVars = function() {
       if (/MSIE (\d+\.\d+);/.test(navigator.appVersion)) {
         var ieversion = Number(RegExp.$1);
-        $('html').addClass('all-ie');
-        if (ieversion === 8) {
-           $('html').addClass('ie-8');
+        if (ieversion > 9) {
+           $('body').addClass('all-ie');
         }
-      } else {
-        if ((WURFL.form_factor === 'Smartphone') || (WURFL.form_factor === 'Tablet')) $('html').addClass('hh');
       }
       $navGlobal = $('[data-menu]');
       $navSlide = $('[data-id=nav-slide]');
       $navPrime = $('[data-id=nav-prime]');
       $navSec = $('[data-id=nav-sec]');
+      $global = $('#global');
     },
 
-    setListeners : function() {
+    setListeners = function() {
       $('html').on('click touchstart', '[data-trigger]', function(ev) {
         ev.preventDefault();
         var dataId = $(ev.target).data('trigger'),
@@ -144,38 +148,44 @@ var GM = (function() {
         switch(dataId) {
           case 'global':
             if (slideOpen || searchOpen) {
-              GM.closeSlide();
-              GM.closeSearch();
-              GM.openGlobal();
+              closeSlide();
+              closeSearch();
+              openGlobal();
             } else {
-              (globalOpen) ? GM.closeGlobal() : GM.openGlobal();
-              GM.mask();
+              (globalOpen) ? closeGlobal() : openGlobal();
+              mask();
             }
             break;
           case 'slide':
             if (globalOpen || searchOpen) {
-              GM.closeGlobal();
-              GM.closeSearch();
-              GM.openSlide();
+              closeGlobal();
+              closeSearch();
+              openSlide();
             } else {
-              (slideOpen) ? GM.closeSlide() : GM.openSlide();
-              GM.mask();
+              (slideOpen) ? closeSlide() : openSlide();
+              mask();
             }
             break;
           case 'sec-nav':
-            GM.closeSlideSecondary();
-            GM.setSlideSecondary(dataLink);
+            closeSlideSecondary();
+            setSlideSecondary(dataLink);
             break;
           case 'sec-close':
-            GM.openSlideSecondary();
+            openSlideSecondary();
             break;
           case 'search':
             if (globalOpen) {
-              GM.closeGlobal();
-              GM.openSearch();
+              closeGlobal();
+              openSearch();
+            } else if (searchOpen) {
+               closeSearch();
+               mask();
+            } else if (slideOpen){
+                closeSlide();
+                openSearch();
             } else {
-              (searchOpen) ? GM.closeSearch() : GM.openSearch();
-              GM.mask();
+              openSearch();
+              mask();
             }
             break;
           default:
@@ -184,93 +194,117 @@ var GM = (function() {
       });
     },
 
-    outsideClick : function() {
-      $('html').on('click touchstart', function(ev) {
+    outsideClick = function() {
+      $('body').on('click touchstart', '#mask, [data-js=close-search], .search-link, [data-js=sub]', function(ev) {
         ev.stopPropagation();
-        if ((!$(ev.target).is('[data-no]')) &&
-            (!$(ev.target).is('#SearchBox input')) &&
-            (!$(ev.target).is('#SearchBox #searchImg')) &&
-            (!$(ev.target).is('#SearchBox'))) {
+        if ((!$(ev.target).is('input'))) {
           if (navActive === true) {
-            if ($globalTrigger.hasClass('open')) GM.closeGlobal();
-            if ($slideTrigger.hasClass('open')) GM.closeSlide();
-            if ($searchTrigger.hasClass('open')) GM.closeSearch();
-            GM.mask();
+            if ($globalTrigger.hasClass('open')) closeGlobal();
+            if ($slideTrigger.hasClass('open')) closeSlide();
+            if ($searchTrigger.hasClass('open')) closeSearch();
+            mask();
           }
         }
       });
+      $('body').on('click', function(ev) {
+        if ($(ev.target).hasClass('last')) return false;
+      });
     },
 
-    openGlobal : function() {
+    openGlobal = function() {
       navActive = true;
       $navGlobal.fadeIn('fast');
       $globalTrigger.addClass('open');
     },
 
-    closeGlobal : function() {
+    closeGlobal = function() {
       navActive = false;
       $navGlobal.fadeOut('fast');
       $globalTrigger.removeClass('open');
     },
 
-    openSlide : function() { 
+    openSlide = function() { 
       navActive = true;
       var pageHeight = $('html').height() * 1.25;
       $navPrime
-        .animate({left: '310px'}, 400)
+        .fadeIn('fast')
+        .animate({right: '0'}, 400)
         .removeClass('kill-pointer')
         .css({
           top: '0',
           height: pageHeight + 'px'
         });
+      $template
+        .show()
+        .animate({right: '0'}, 400);
       $slideTrigger.addClass('open');
     },
 
-    closeSlide : function () {
+    closeSlide = function () {
       navActive = false;
       $navPrime
-        .animate({left: '-310px'}, 400)
-        .addClass('kill-pointer');
+        .animate({right: '-310px'}, 400)
+        .addClass('kill-pointer')
+        .fadeOut('fast');
+      $template
+        .animate({right: '-440px'}, 400)
+        .hide('slow')
       $slideTrigger.removeClass('open');
-      GM.openSlideSecondary();
+      openSlideSecondary();
     },
 
-    openSlideSecondary : function () {
+    openSlideSecondary = function () {
+      $global.show('fast');
       $navSlide
-        .animate({left: '0'}, 400)
+        .animate({right: '0'}, 400)
         .removeClass('kill-pointer');
       setTimeout(function() {
         $navSec.removeClass('shadow');
       }, 440);
     },
 
-    closeSlideSecondary : function () {
+    closeSlideSecondary = function () {
+      $global.hide('slow');
       $navSlide
-        .animate({left: '-310px'}, 400)
+        .animate({right: '-310px'}, 400)
         .addClass('kill-pointer');
       $navSec.addClass('shadow');
     },
 
-    openSearch : function() {
+    openSearch = function() {
       navActive = true;
       $searchContainer.fadeIn('fast');
       $searchTrigger.addClass('open');
     },
 
-    closeSearch : function() {
+    closeSearch = function() {
       navActive = false;
       $searchContainer.fadeOut('fast');
       $searchTrigger.removeClass('open');
     },
 
-    mask : function() {
-      ($dataMask.hasClass('invisible')) ? $dataMask.fadeIn('fast').removeClass('invisible') : $dataMask.fadeOut('fast').addClass('invisible');
-    },
+    mask = function() {
+      if ($dataMask.hasClass('invisible')) {
+        if ($('body').hasClass('ie-8')) {
+          $dataMask.removeClass('invisible');
+        } else {
+          $dataMask.fadeIn('fast').removeClass('invisible');
+        }
+      } else {
+        if ($('body').hasClass('ie-8')) {
+          $dataMask.addClass('invisible');
+        } else {
+          $dataMask.fadeOut('fast').addClass('invisible');
+        }
+      }
+    };
 
+  return {
     init : function() {
-      GM.setTemplate();
+      setTemplate();
     }
   };
+
 })();
 $( window ).load(function() { GM.init(); });
 
