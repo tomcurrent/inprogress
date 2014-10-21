@@ -15,7 +15,7 @@ var MenusModel = (function () {
                     async: true,
                     listName: "Global Apps",
                     CAMLViewFields: "<ViewFields><FieldRef Name='Title' /><FieldRef Name='URL' /><FieldRef Name='RHLaunchNewWindow' /><FieldRef Name='RHImage' /></ViewFields>",
-                    CAMLQuery: "<Query><Where><Eq><FieldRef Name='RHCBusinessUnit' /><Value Type='TaxonomyFieldTypeMulti'>" + personProperties.BusinessUnit + "</Value></Eq></Where><OrderBy><FieldRef Name='SortOrder' /></OrderBy></Query>",
+                    CAMLQuery: "<Query><Where><Eq><FieldRef Name='RHCBusinessUnit' /><Value Type='TaxonomyFieldTypeMulti'>" + personProperties.BusinessUnit + "</Value></Eq></Where><OrderBy><FieldRef Name='RHSortOrder' /></OrderBy></Query>",
                     webURL: _contextPath,
                     completefunc: function (xData, Status) {
                         var rows = $(xData.responseText).find('[ows_Title]'),
@@ -23,7 +23,7 @@ var MenusModel = (function () {
                         $.each(rows, function (i, el) {
                             var title = $(el).attr('ows_title'),
                                 window = $(el).attr('ows_rhlaunchnewwindow'),
-                                url = $(el).attr('ows_url').split(",")[0],
+                                url = ($(el).attr('ows_url')) ? $(el).attr('ows_url').split(",")[0] : '',
                                 image = $(el).attr('ows_rhimage');
                             innerObj = { Title: title, URL: url, Image: image, RHLaunchNewWindow: window };
                             _globalData.push(innerObj);
@@ -35,12 +35,10 @@ var MenusModel = (function () {
 
             setGlobalData: function (_globalData) {
                 $.each(_globalData, function (i, el) {
-                    if (i <= 8) {
                         _globalCopy.push(el.Title);
                         _globalHref.push(el.URL);
                         _globalImage.push(el.Image);
                         (el.RHLaunchNewWindow) ? _globalBlank.push('_blank') : _globalBlank.push('_self');
-                    }
                     if (i >= 9) viewAll = true;
                 });
                 $('[data-trigger=global]').removeClass('no-pointer');
@@ -67,10 +65,15 @@ var MenusModel = (function () {
                             });
 
                     $.each(_globalHref, function (i, el) {
-                        if (i === 9) {
-                            $('[data-target=global]').find('ul').append('<li><a class="global-view-all txt-grey" data-view-all href="' + _contextPath + '"/Pages/View-All-Global-Apps.aspx">VIEW ALL</a></li>');
+                        var viewURL = _contextPath + "/Pages/View-All-Global-Apps.aspx";
+                        if ((i >= 7) && (i <= 8)) {
+                            $('[data-global-list]').append('<li class="people"><a href="' + _globalHref[i] + '" data-link><div></div><p class="txt-grey-mid" data-copy target="' + _globalBlank[i] + '">' + _globalCopy[i] + '</p></a></li>')
                         }
+                        if (i == 9) {
+                            $('[data-global-list]').append('<li><p data-all><a class="global-view-all txt-grey" data-view-all href="' + viewURL + '">VIEW ALL</a></p></li>');
+                        }                      
                     });
+                    
                     globalSet = true;
                 }
             },
@@ -239,7 +242,7 @@ var MenusModel = (function () {
             },
 
             loadGlobal: function () {
-                var contentGlobal = '<br><div class="menu-container clearfix" data-menu><ul>{{#each this.global}}<li class="{{className}}"><a href="{{url}}" data-link><div></div><p class="txt-grey-mid" data-copy>{{copy}}</p></a></li>{{/each}}<ul></div>';
+                var contentGlobal = '<br><div class="menu-container clearfix" data-menu><ul data-global-list>{{#each this.global}}<li class="{{className}}"><a href="{{url}}" data-link><div></div><p class="txt-grey-mid" data-copy>{{copy}}</p></a></li>{{/each}}<ul></div>';
                 return contentGlobal;
             }
         };
